@@ -1,0 +1,30 @@
+CRUD Summary Table for Dictionaries
+Operation	Method	Description
+Create:
+{} or dict()	Create an empty dictionary.
+dict(keys, values)	Create a dictionary dynamically.
+
+Read:
+
+dict[key]	Access value by key (raises KeyError if missing).
+dict.get(key, default)	Access value by key with default fallback.
+
+Update:
+
+dict[key] = value	Update or add a key-value pair.
+dict.update(other_dict)	Merge another dictionary into the current one.
+
+Delete:
+
+dict.pop(key)	Remove a key and return its value.
+dict.popitem()	Remove and return the last inserted key-value.
+dict.clear()	Clear all key-value pairs.
+del dict	Delete the entire dictionary.
+
+Loop:
+
+How can you loop through a dictionary?
+
+Loop through keys: for key in my_dict:.
+Loop through values: for value in my_dict.values():.
+Loop through key-value pairs: for key, value in my_dict.items():

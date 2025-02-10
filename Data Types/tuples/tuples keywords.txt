@@ -1,0 +1,19 @@
+CRUD Summary Table for Tuples
+Operation	Method	Description.
+
+Create:
+() or tuple()	Create an empty tuple.
+(1, 2, 3)	Create a tuple with initial values.
+tuple(iterable)	Create a tuple from an iterable.
+
+Read:
+tuple[index]	Access an element by index (e.g., tuple[0]).
+tuple[start:end]	Slice the tuple to get a subset.
+for item in tuple	Iterate over the tuple.
+
+Update:
+tuple + tuple	Concatenate tuples to create a new one.
+tuple * n	Multiply a tuple to repeat its elements.
+
+Delete:
+del tuple	Delete the entire tuple.

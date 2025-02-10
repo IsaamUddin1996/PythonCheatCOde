@@ -1,0 +1,22 @@
+CRUD Summary Table for Sets
+Operation	Method	Description.
+
+Create:
+set()	Create an empty set.
+{1, 2, 3}	Create a set with initial values.
+set(iterable)	Create a set from an iterable like a list.
+
+Read:
+item in set	Check if an element exists in the set.
+for item in set	Iterate over the set.
+
+Update:
+set.add(item)	Add a single element to the set.
+set.update(iterable)	Add multiple elements to the set.
+set.remove(item)	Remove an element (raises KeyError if not found).
+set.discard(item)	Remove an element (doesn't raise an error if not found).
+set.pop()	Remove and return a random element.
+
+Delete:
+set.clear()	Remove all elements from the set.
+del set	Delete the entire set.

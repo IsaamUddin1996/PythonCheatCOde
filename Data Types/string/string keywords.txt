@@ -1,0 +1,21 @@
+CRUD Summary Table for Strings
+Operation	Method	Description
+
+Create:
+"" or str() ->	Create an empty string or convert an object to a string.
+'Hello' ->	Create a string directly.
+
+Read:
+str[index] ->	Access a character by index (e.g., str[0] for the first character).
+str[start:end] ->	Get a substring using slicing (e.g., str[1:4]).
+
+for char in str	Iterate over each character in the string.
+
+Update:
+str.replace(old, new) ->	Replace occurrences of a substring with another.
+str + "addition" ->	Concatenate strings. Strings are immutable; updates create new strings.
+str.upper(), str.lower() -> 	Transform string to upper or lower case.
+
+Delete:
+str = None ->	Remove reference to a string by assigning None.
+del str ->	Delete the entire string object.

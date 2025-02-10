@@ -1,0 +1,175 @@
+Pillars of OOP in Summary
+Pillar	Description
+
+Encapsulation:	Binding data and methods together and restricting direct access.
+Inheritance:	Reusing code by inheriting from existing classes.
+Polymorphism:	Methods behave differently based on the object (overloading/overriding).
+Abstraction:	Hiding implementation details and exposing only what is necessary.
+
+                         -----------------Class----------------------
+
+CLass:
+    A class is a blueprint or template for creating objects. It defines the attributes (data) and methods (functions) that the objects created from the class will have.
+class Bike:
+    def __init__(self, model, color):
+        # Store data (attributes) in the object
+        self.model = model
+        self.color = color
+
+    def show_details(self):
+        return f"Bike Model: {self.model}, Color: {self.color}" 
+# Creating an object
+my_bike = Bike(2008, "Red")
+
+# Accessing stored data
+print(f"My bike's model is {my_bike.model} and the color is {my_bike.color}.")
+print(my_bike.show_details())
+
+            -----------------Object----------------------
+Object:
+    An object is an instance of a class. Each object has unique attributes but shares the same methods as defined in the class.
+    An Object of a class is mutable.
+
+You create object like my_bike = Bike("Toyota", "blue")
+
+            -----------------Encapsulation----------------------
+
+Encapsulation:
+    It restricts direct access to certain components using access modifiers (e.g., private, public).
+
+ class BankAccount:
+    def __init__(self, account_holder, balance):
+        self.account_holder = account_holder
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount("Alice", 1000)
+account.deposit(500)
+print(account.get_balance())  # Output: 1500
+# print(account.__balance)  # AttributeError: 'BankAccount' object has no attribute '__balance'
+
+We Use Getter And Setter in Encapsulation
+            -----------------Inheritance----------------------
+Inheritance:
+    Inheritance allows a class (child or derived class) to inherit attributes and methods from another class (parent or base class). This promotes reusability.
+
+class Animal:
+    def speak(self):
+        print("The animal makes a sound.")
+
+class Dog(Animal):  # Dog inherits from Animal
+    def speak(self):
+        print("The dog barks.")
+
+dog = Dog()
+dog.speak()  # Output: The dog barks.
+
+            -----------------Polymorphism----------------------
+
+Polymorphism (overloading/overriding):
+    Polymorphism means "many forms". It allows methods in different classes to share the same name but behave differently depending on the class.
+
+Method Overriding
+    Method overriding happens when a subclass provides a specific implementation of a method that is already defined in its parent class. The method in the subclass overrides the method in the parent class.
+
+class Animal:
+    def sound(self):
+        return "Animals make different sounds"
+
+class Dog(Animal):
+    def sound(self):
+        return "The dog barks"
+
+class Cat(Animal):
+    def sound(self):
+        return "The cat meows"
+
+# Using method overriding
+animals = [Animal(), Dog(), Cat()]
+for animal in animals:
+    print(animal.sound())
+
+Method Overloading (Using Default Arguments in Python)
+    Python doesn’t support method overloading natively like some other languages (e.g., Java).
+
+class Calculator:
+    def add(self, a, b=0, c=0):  # Default arguments
+        return a + b + c
+
+calc = Calculator()
+print(calc.add(5))          # Output: 5 (adds 5 + 0 + 0)
+print(calc.add(5, 10))      # Output: 15 (adds 5 + 10 + 0)
+print(calc.add(5, 10, 15))  # Output: 30 (adds 5 + 10 + 15)
+
+
+            -----------------Abstraction----------------------
+Abstraction:
+    Abstraction hides implementation details from the user and only exposes the essential features of an object. In Python, this is often done using abstract base classes.
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+rect = Rectangle(5, 10)
+print(rect.area())  # Output: 50
+
+ ----------------------instance variables----------------------------
+Instance variables are unique to each instance (object) of the class.
+They are defined inside the __init__ method using self.variable_name.
+Each object gets its own copy of instance variables. 
+
+class Car:
+    def __init__(self, brand, color):
+        self.brand = brand  # Instance variable
+
+ ----------------------------static (class) variables----------------------------
+ Static variables (also called class variables) are shared across all instances of a class.
+Defined outside the __init__ method using ClassName.variable_name.
+All objects share the same value unless explicitly overridden.
+
+class Car:
+    wheels = 4  # Static (class) variable
+
+
+
+        ------------------------Pass By Value-------------------------
+Immutable objects (e.g., integers, strings, tuples) behave like pass by value.
+
+        ----------------------Pass By Reference----------------------------
+Mutable objects (e.g., lists, dictionaries, sets) behave like pass by reference.
+
+----------------------------Memory Address----------------------------
+
+Summary Table: id() and Behavior in Function Calls
+
+Data Type	Mutable/Immutable?	Same id() after modification?	Function Behavior
+int	        Immutable	        ❌ Creates a new object	        Pass by Value
+str	        Immutable	        ❌ Creates a new object	        Pass by Value
+tuple	    Immutable	        ❌ Creates a new object	        Pass by Value
+list	    Mutable	            ✅ Same object modified	        Pass by Reference
+dict	    Mutable	            ✅ Same object modified	        Pass by Reference
+set	        Mutable	            ✅ Same object modified	        Pass by Reference
+
+Reference Variables in Python:
+A reference variable in Python is a variable that stores the memory address of an object instead of
+the actual value. Python does not store values directly in variables; instead, it stores references
+to objects in memory.
+When you create a variable, Python creates an object in memory and assigns the variable a reference
+(memory address) to that object.
+If another variable is assigned to the same object, both variables point to the same memory location.
