@@ -8,8 +8,9 @@ Abstraction:	Hiding implementation details and exposing only what is necessary.
 
                          -----------------Class----------------------
 
-CLass:
+Class:
     A class is a blueprint or template for creating objects. It defines the attributes (data) and methods (functions) that the objects created from the class will have.
+
 class Bike:
     def __init__(self, model, color):
         # Store data (attributes) in the object
@@ -51,7 +52,7 @@ Encapsulation:
 account = BankAccount("Alice", 1000)
 account.deposit(500)
 print(account.get_balance())  # Output: 1500
-# print(account.__balance)  # AttributeError: 'BankAccount' object has no attribute '__balance'
+print(account.__balance)  # AttributeError: 'BankAccount' object has no attribute '__balance'
 
 We Use Getter And Setter in Encapsulation
             -----------------Inheritance----------------------
